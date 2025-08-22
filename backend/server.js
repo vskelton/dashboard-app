@@ -24,6 +24,13 @@ const connectDB = async () => {
 // Call the connection function
 connectDB();
 
+// Allows the app the parse JSON body from requests
+app.use(express.json());
+
+// Define routes
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/todos', require('./routes/todos'));
+
 // Basic route to check if server is running
 app.get('/', (req, res) => {
     res.send('API is running...');
