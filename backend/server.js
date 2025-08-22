@@ -4,6 +4,7 @@ require('dotenv').config();
 // Import necessary packages
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 // Initialize Express app
 const app = express();
@@ -25,6 +26,7 @@ const connectDB = async () => {
 connectDB();
 
 // Allows the app the parse JSON body from requests
+app.use(cors());
 app.use(express.json());
 
 // Define routes
